@@ -11,7 +11,7 @@ import SwiftUI
 struct MagicNavMenuApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CustomTabBarView()
         }
     }
 }
