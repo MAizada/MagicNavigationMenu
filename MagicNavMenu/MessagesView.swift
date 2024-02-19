@@ -11,7 +11,7 @@ struct MessagesView: View {
     var body: some View {
         Text("Messages Screen")
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.black)
+            .background(Color.gray)
             .foregroundColor(.white) 
     }
 }

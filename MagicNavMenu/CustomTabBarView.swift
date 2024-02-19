@@ -9,6 +9,9 @@ import SwiftUI
 
 struct CustomTabBarView: View {
     @State private var selection = 0
+    @State private var imageOffset: CGFloat = 0
+    @State private var selectionOffset: CGFloat = 0
+    @State private var buttonOffset: CGFloat = 0
 
     enum Tab: Int, CaseIterable {
         case home, profile, messages, photos, settings
@@ -20,6 +23,16 @@ struct CustomTabBarView: View {
             case .messages: return "message"
             case .photos: return "photo"
             case .settings: return "gearshape"
+            }
+        }
+
+        var tabTitle: String {
+            switch self {
+            case .home: return "Home"
+            case .profile: return "Profile"
+            case .messages: return "Messages"
+            case .photos: return "Photos"
+            case .settings: return "Settings"
             }
         }
     }
@@ -41,6 +54,7 @@ struct CustomTabBarView: View {
                     TabItem(tab: tab, isSelected: selection == tab.rawValue) {
                         withAnimation {
                             selection = tab.rawValue
+                            buttonOffset = CGFloat(tab.rawValue) * (UIScreen.main.bounds.width / CGFloat(Tab.allCases.count))
                         }
                     }
                     Spacer()
@@ -48,6 +62,13 @@ struct CustomTabBarView: View {
             }
         }
         .background(Color.white.cornerRadius(20))
+        .onChange(of: selection) { newSelection in
+            withAnimation {
+                imageOffset = CGFloat(newSelection - selection) * -25
+                selectionOffset = CGFloat(newSelection - selection) * -25
+                buttonOffset = CGFloat(newSelection) * (UIScreen.main.bounds.width / CGFloat(Tab.allCases.count))
+            }
+        }
     }
 }
 
@@ -63,20 +84,30 @@ struct TabItem: View {
     let action: () -> Void
 
     var body: some View {
-        ZStack {
-            Circle()
-                .fill(isSelected ? Color.red : Color.clear)
-                .frame(width: isSelected ? 60 : 0, height: isSelected ? 60 : 0)
-                .offset(y: isSelected ? -20 : 0)
-                .animation(.default)
+        VStack {
+            ZStack {
+                Circle()
+                    .fill(isSelected ? Color.red : Color.clear)
+                    .frame(width: isSelected ? 70 : 0, height: isSelected ? 70 : 0)
+                    .offset(y: isSelected ? -25 : 0)
 
-            Image(systemName: tab.imageName)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 20, height: 20)
-                .foregroundColor(isSelected ? .black : .black)
-                .padding()
+                Image(systemName: tab.imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 30, height: 30)
+                    .foregroundColor(isSelected ? .black : .black)
+                    .offset(y: isSelected ? -25 : 0)
+            }
+
+            if isSelected {
+                Text(tab.tabTitle)
+                    .font(.caption)
+                    .foregroundColor(.black)
+                    .padding(.top, -30)
+            }
         }
-        .onTapGesture(perform: action)
+        .onTapGesture {
+            action()
+        }
     }
 }

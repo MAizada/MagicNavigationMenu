@@ -11,7 +11,7 @@ struct PhotosView: View {
     var body: some View {
         Text("Photos Screen")
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.black)
+            .background(Color.gray)
             .foregroundColor(.white) 
     }
 }
