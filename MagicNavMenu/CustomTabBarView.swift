@@ -47,7 +47,6 @@ struct CustomTabBarView: View {
                 SettingsView().tag(Tab.settings.rawValue)
             }
             .accentColor(.clear)
-
             HStack(spacing: 0) {
                 ForEach(Tab.allCases, id: \.self) { tab in
                     Spacer()
@@ -61,14 +60,7 @@ struct CustomTabBarView: View {
                 }
             }
         }
-        .background(Color.white.cornerRadius(20))
-        .onChange(of: selection) { newSelection in
-            withAnimation {
-                imageOffset = CGFloat(newSelection - selection) * -25
-                selectionOffset = CGFloat(newSelection - selection) * -25
-                buttonOffset = CGFloat(newSelection) * (UIScreen.main.bounds.width / CGFloat(Tab.allCases.count))
-            }
-        }
+        .background(Color.teal.cornerRadius(20))
     }
 }
 
@@ -87,7 +79,7 @@ struct TabItem: View {
         VStack {
             ZStack {
                 Circle()
-                    .fill(isSelected ? Color.red : Color.clear)
+                    .fill(isSelected ? Color.blue : Color.clear)
                     .frame(width: isSelected ? 70 : 0, height: isSelected ? 70 : 0)
                     .offset(y: isSelected ? -25 : 0)
 

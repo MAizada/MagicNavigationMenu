@@ -11,7 +11,7 @@ struct HomeView: View {
     var body: some View {
         Text("Home Screen")
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.gray)
-            .foregroundColor(.white)
+            .background(Color.white)
+       
     }
 }
