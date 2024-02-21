@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProfileView: View {
+struct ListView: View {
     var body: some View {
         Text("Profile Screen")
             .frame(maxWidth: .infinity, maxHeight: .infinity)

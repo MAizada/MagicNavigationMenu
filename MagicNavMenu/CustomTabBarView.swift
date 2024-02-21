@@ -14,14 +14,12 @@ struct CustomTabBarView: View {
     @State private var buttonOffset: CGFloat = 0
 
     enum Tab: Int, CaseIterable {
-        case home, profile, messages, photos, settings
+        case home, list, settings
 
         var imageName: String {
             switch self {
             case .home: return "house"
-            case .profile: return "person"
-            case .messages: return "message"
-            case .photos: return "photo"
+            case .list: return "list.bullet"
             case .settings: return "gearshape"
             }
         }
@@ -29,9 +27,7 @@ struct CustomTabBarView: View {
         var tabTitle: String {
             switch self {
             case .home: return "Home"
-            case .profile: return "Profile"
-            case .messages: return "Messages"
-            case .photos: return "Photos"
+            case .list: return "List"
             case .settings: return "Settings"
             }
         }
@@ -41,9 +37,7 @@ struct CustomTabBarView: View {
         VStack(spacing: 0) {
             TabView(selection: $selection) {
                 HomeView().tag(Tab.home.rawValue)
-                ProfileView().tag(Tab.profile.rawValue)
-                MessagesView().tag(Tab.messages.rawValue)
-                PhotosView().tag(Tab.photos.rawValue)
+                ListView().tag(Tab.list.rawValue)
                 SettingsView().tag(Tab.settings.rawValue)
             }
             .accentColor(.clear)
