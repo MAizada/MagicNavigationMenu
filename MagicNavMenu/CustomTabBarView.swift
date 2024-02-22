@@ -1,9 +1,3 @@
-//
-//  ContentView.swift
-//  MagicNavMenu
-//
-//  Created by Aizada on 18.02.2024.
-//
 
 import SwiftUI
 
@@ -12,10 +6,10 @@ struct CustomTabBarView: View {
     @State private var imageOffset: CGFloat = 0
     @State private var selectionOffset: CGFloat = 0
     @State private var buttonOffset: CGFloat = 0
-
+    
     enum Tab: Int, CaseIterable {
         case home, list, settings
-
+        
         var imageName: String {
             switch self {
             case .home: return "house"
@@ -23,7 +17,7 @@ struct CustomTabBarView: View {
             case .settings: return "gearshape"
             }
         }
-
+        
         var tabTitle: String {
             switch self {
             case .home: return "Home"
@@ -32,7 +26,7 @@ struct CustomTabBarView: View {
             }
         }
     }
-
+    
     var body: some View {
         VStack(spacing: 0) {
             TabView(selection: $selection) {
@@ -61,6 +55,7 @@ struct CustomTabBarView: View {
 struct CustomTabBarView_Previews: PreviewProvider {
     static var previews: some View {
         CustomTabBarView()
+            .environmentObject(GoalsManager())
     }
 }
 
@@ -68,7 +63,7 @@ struct TabItem: View {
     let tab: CustomTabBarView.Tab
     let isSelected: Bool
     let action: () -> Void
-
+    
     var body: some View {
         VStack {
             ZStack {
@@ -76,7 +71,7 @@ struct TabItem: View {
                     .fill(isSelected ? Color.blue : Color.clear)
                     .frame(width: isSelected ? 70 : 0, height: isSelected ? 70 : 0)
                     .offset(y: isSelected ? -25 : 0)
-
+                
                 Image(systemName: tab.imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
@@ -84,7 +79,7 @@ struct TabItem: View {
                     .foregroundColor(isSelected ? .black : .black)
                     .offset(y: isSelected ? -25 : 0)
             }
-
+            
             if isSelected {
                 Text(tab.tabTitle)
                     .font(.caption)

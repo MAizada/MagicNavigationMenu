@@ -43,19 +43,16 @@ struct HomeView: View {
             Text("My goal")
                 .font(.largeTitle)
                 .padding()
-            
             ZStack {
                 Circle()
                     .stroke(lineWidth: 10.0)
                     .opacity(0.3)
                     .foregroundColor(Color.gray)
-                
                 Circle()
                     .trim(from: 0.0, to: CGFloat(completionPercentage / 100.0))
                     .stroke(style: StrokeStyle(lineWidth: 20.0, lineCap: .round, lineJoin: .round))
                     .foregroundColor(Color.teal)
                     .rotationEffect(Angle(degrees: -90))
-                
                 Text("\(Int(completionPercentage))%")
                     .font(.title)
                     .fontWeight(.bold)
@@ -69,8 +66,7 @@ struct HomeView: View {
             Text("Profile Screen")
         }
         .sheet(isPresented: $showAddGoal) {
-            // Место для экрана добавления цели
-            Text("Add Goal Screen")
+            AddGoalView()
         }
     }
 }

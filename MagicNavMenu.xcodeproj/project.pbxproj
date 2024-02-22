@@ -14,6 +14,7 @@
 		2EAF7B162B8265D600A14D4F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAF7B152B8265D600A14D4F /* HomeView.swift */; };
 		2EAF7B182B82660300A14D4F /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAF7B172B82660300A14D4F /* ListView.swift */; };
 		2EAF7B1E2B82663200A14D4F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAF7B1D2B82663200A14D4F /* SettingsView.swift */; };
+		2EB1DA302B879EF40060C83D /* AddGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB1DA2F2B879EF40060C83D /* AddGoalView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		2EAF7B152B8265D600A14D4F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		2EAF7B172B82660300A14D4F /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		2EAF7B1D2B82663200A14D4F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		2EB1DA2F2B879EF40060C83D /* AddGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGoalView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +61,9 @@
 			children = (
 				2EAF7B072B8261EF00A14D4F /* MagicNavMenuApp.swift */,
 				2EAF7B092B8261EF00A14D4F /* CustomTabBarView.swift */,
-				2EAF7B152B8265D600A14D4F /* HomeView.swift */,
-				2EAF7B172B82660300A14D4F /* ListView.swift */,
-				2EAF7B1D2B82663200A14D4F /* SettingsView.swift */,
+				2EB1DA282B879D340060C83D /* HomeScreen */,
+				2EB1DA292B879D4C0060C83D /* ListScreen */,
+				2EB1DA2A2B879D500060C83D /* SettingsScreen */,
 				2EAF7B0B2B8261F000A14D4F /* Assets.xcassets */,
 				2EAF7B0D2B8261F000A14D4F /* Preview Content */,
 			);
@@ -74,6 +76,31 @@
 				2EAF7B0E2B8261F000A14D4F /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2EB1DA282B879D340060C83D /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				2EAF7B152B8265D600A14D4F /* HomeView.swift */,
+				2EB1DA2F2B879EF40060C83D /* AddGoalView.swift */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
+		2EB1DA292B879D4C0060C83D /* ListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				2EAF7B172B82660300A14D4F /* ListView.swift */,
+			);
+			path = ListScreen;
+			sourceTree = "<group>";
+		};
+		2EB1DA2A2B879D500060C83D /* SettingsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				2EAF7B1D2B82663200A14D4F /* SettingsView.swift */,
+			);
+			path = SettingsScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +175,7 @@
 			files = (
 				2EAF7B1E2B82663200A14D4F /* SettingsView.swift in Sources */,
 				2EAF7B182B82660300A14D4F /* ListView.swift in Sources */,
+				2EB1DA302B879EF40060C83D /* AddGoalView.swift in Sources */,
 				2EAF7B162B8265D600A14D4F /* HomeView.swift in Sources */,
 				2EAF7B0A2B8261EF00A14D4F /* CustomTabBarView.swift in Sources */,
 				2EAF7B082B8261EF00A14D4F /* MagicNavMenuApp.swift in Sources */,
