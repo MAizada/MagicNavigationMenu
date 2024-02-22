@@ -1,16 +1,11 @@
-//
-//  ProfileView.swift
-//  MagicNavMenu
-//
-//  Created by Aizada on 18.02.2024.
-//
 
 import SwiftUI
 
-struct ListView: View {
+struct SettingsView: View {
     var body: some View {
-        Text("Profile Screen")
+        Text("Settings Screen")
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.white)
     }
 }
+
