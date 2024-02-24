@@ -1,9 +1,3 @@
-//
-//  HomeView.swift
-//  MagicNavMenu
-//
-//  Created by Aizada on 18.02.2024.
-//
 
 import SwiftUI
 
@@ -62,7 +56,6 @@ struct HomeView: View {
         }
         .padding()
         .sheet(isPresented: $showProfile) {
-            // Место для представления профиля
             Text("Profile Screen")
         }
         .sheet(isPresented: $showAddGoal) {
