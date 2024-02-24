@@ -1,11 +1,6 @@
 
 import SwiftUI
 
-class GoalsManager: ObservableObject {
-
-    @Published var newGoalText: String = ""
-}
-
 struct AddGoalView: View {
     @EnvironmentObject var goalsManager: GoalsManager
 
@@ -17,13 +12,13 @@ struct AddGoalView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
 
                 Button("Add Goal") {
-                    
+                    goalsManager.addGoal()
                     print("Adding goal")
                 }
                 .padding()
                 .foregroundColor(.white)
                 .background(Color.teal)
-                .cornerRadius(10)
+                .cornerRadius(20)
             }
             .padding()
             .navigationBarTitle("Add Goal")

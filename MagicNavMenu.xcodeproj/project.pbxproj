@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E3645162B89E3FB0050A5C2 /* GoalsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3645152B89E3FB0050A5C2 /* GoalsManager.swift */; };
 		2EAF7B082B8261EF00A14D4F /* MagicNavMenuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAF7B072B8261EF00A14D4F /* MagicNavMenuApp.swift */; };
 		2EAF7B0A2B8261EF00A14D4F /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EAF7B092B8261EF00A14D4F /* CustomTabBarView.swift */; };
 		2EAF7B0C2B8261F000A14D4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EAF7B0B2B8261F000A14D4F /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E3645152B89E3FB0050A5C2 /* GoalsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsManager.swift; sourceTree = "<group>"; };
 		2EAF7B042B8261EF00A14D4F /* MagicNavMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicNavMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EAF7B072B8261EF00A14D4F /* MagicNavMenuApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicNavMenuApp.swift; sourceTree = "<group>"; };
 		2EAF7B092B8261EF00A14D4F /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 			children = (
 				2EAF7B072B8261EF00A14D4F /* MagicNavMenuApp.swift */,
 				2EAF7B092B8261EF00A14D4F /* CustomTabBarView.swift */,
+				2E3645152B89E3FB0050A5C2 /* GoalsManager.swift */,
 				2EB1DA282B879D340060C83D /* HomeScreen */,
 				2EB1DA292B879D4C0060C83D /* ListScreen */,
 				2EB1DA2A2B879D500060C83D /* SettingsScreen */,
@@ -173,6 +176,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E3645162B89E3FB0050A5C2 /* GoalsManager.swift in Sources */,
 				2EAF7B1E2B82663200A14D4F /* SettingsView.swift in Sources */,
 				2EAF7B182B82660300A14D4F /* ListView.swift in Sources */,
 				2EB1DA302B879EF40060C83D /* AddGoalView.swift in Sources */,
