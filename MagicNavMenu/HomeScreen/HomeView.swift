@@ -1,8 +1,9 @@
 
 import SwiftUI
+import Combine
 
 struct HomeView: View {
-    @State private var completionPercentage: Double = 70.0
+    @ObservedObject var goalsManager = GoalsManager()
     @State private var showProfile: Bool = false
     @State private var showAddGoal: Bool = false
 
@@ -34,25 +35,10 @@ struct HomeView: View {
             }
 
             Spacer()
-            Text("My goal")
-                .font(.largeTitle)
-                .padding()
-            ZStack {
-                Circle()
-                    .stroke(lineWidth: 10.0)
-                    .opacity(0.3)
-                    .foregroundColor(Color.gray)
-                Circle()
-                    .trim(from: 0.0, to: CGFloat(completionPercentage / 100.0))
-                    .stroke(style: StrokeStyle(lineWidth: 20.0, lineCap: .round, lineJoin: .round))
-                    .foregroundColor(Color.teal)
-                    .rotationEffect(Angle(degrees: -90))
-                Text("\(Int(completionPercentage))%")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.teal)
-            }
-            .frame(width: 150, height: 150)
+            
+            GoalProgressView(progress: goalsManager.goalProgress.first ?? 0.0)
+
+                      Spacer()
         }
         .padding()
         .sheet(isPresented: $showProfile) {
@@ -69,3 +55,27 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
     }
 }
+
+struct GoalProgressView: View {
+    var progress: Double
+
+    var body: some View {
+        ZStack {
+            Circle()
+                .stroke(lineWidth: 10.0)
+                .opacity(0.3)
+                .foregroundColor(Color.gray)
+            Circle()
+                .trim(from: 0.0, to: CGFloat(progress / 100.0))
+                .stroke(style: StrokeStyle(lineWidth: 20.0, lineCap: .round, lineJoin: .round))
+                .foregroundColor(Color.teal)
+                .rotationEffect(Angle(degrees: -90))
+            Text("\(Int(progress))%")
+                .font(.title)
+                .fontWeight(.bold)
+                .foregroundColor(Color.teal)
+        }
+        .frame(width: 150, height: 150)
+    }
+}
+

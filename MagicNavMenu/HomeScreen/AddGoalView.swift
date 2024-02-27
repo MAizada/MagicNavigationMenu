@@ -12,8 +12,10 @@ struct AddGoalView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
 
                 Button("Add Goal") {
-                    goalsManager.addGoal()
-                    print("Adding goal")
+                    if !goalsManager.newGoalText.isEmpty {
+                        goalsManager.addGoal(goalsManager.newGoalText)
+                        print("Adding goal")
+                    }
                 }
                 .padding()
                 .foregroundColor(.white)
@@ -32,6 +34,3 @@ struct AddGoalView_Previews: PreviewProvider {
             .environmentObject(GoalsManager())
     }
 }
-
-
-
