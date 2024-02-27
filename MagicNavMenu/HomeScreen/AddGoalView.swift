@@ -17,8 +17,16 @@ struct AddGoalView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
 
                 Button("Add Goal") {
+<<<<<<< Updated upstream
                     
                     print("Adding goal")
+=======
+                    let newGoal = "Your new goal" 
+                       DispatchQueue.main.async {
+                           goalsManager.addGoal(newGoal)
+                           print("Adding goal")
+                       }
+>>>>>>> Stashed changes
                 }
                 .padding()
                 .foregroundColor(.white)
