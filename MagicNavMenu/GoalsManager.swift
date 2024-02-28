@@ -46,4 +46,36 @@ class GoalsManager: ObservableObject {
         UserDefaults.standard.set(goals, forKey: "savedGoals")
         UserDefaults.standard.set(isGoalCompleted, forKey: "savedIsGoalCompleted")
     }
+    
+    func deleteGoal(at index: Int) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+
+            if index >= 0 && index < self.goals.count {
+                self.goals.remove(at: index)
+                self.isGoalCompleted.remove(at: index)
+                self.goalProgress.remove(at: index)
+                self.saveToUserDefaults()
+            } else {
+                print("Index is out of range or array is empty.")
+            }
+        }
+    }
+    
+    func deleteGoals(at indices: IndexSet) {
+           goals.remove(atOffsets: indices)
+           isGoalCompleted.remove(atOffsets: indices)
+           goalProgress.remove(atOffsets: indices)
+           saveToUserDefaults()
+       }
+    
+    func updateGoal(at index: Int, with newText: String) {
+        if index >= 0 && index < goals.count {
+            goals[index] = newText
+            saveToUserDefaults()
+        } else {
+            print("Index is out of range.")
+        }
+    }
+
 }
