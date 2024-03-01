@@ -1,8 +1,9 @@
-
 import SwiftUI
 
 struct AddGoalView: View {
     @EnvironmentObject var goalsManager: GoalsManager
+    @State private var showAlert = false
+    @State private var showEmptyTextAlert = false
 
     var body: some View {
         NavigationView {
@@ -12,9 +13,12 @@ struct AddGoalView: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
 
                 Button("Add Goal") {
-                    if !goalsManager.newGoalText.isEmpty {
+                    if goalsManager.newGoalText.isEmpty {
+                        showEmptyTextAlert = true
+                    } else {
                         goalsManager.addGoal(goalsManager.newGoalText)
-                        print("Adding goal")
+                        showAlert = true
+                        goalsManager.newGoalText = ""
                     }
                 }
                 .padding()
@@ -24,6 +28,20 @@ struct AddGoalView: View {
             }
             .padding()
             .navigationBarTitle("Add Goal")
+            .alert(isPresented: $showAlert) {
+                Alert(
+                    title: Text("Goal Added"),
+                    message: Text("Your goal has been added successfully."),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
+            .alert(isPresented: $showEmptyTextAlert) {
+                Alert(
+                    title: Text("Empty Text"),
+                    message: Text("Please enter a goal before adding."),
+                    dismissButton: .default(Text("OK"))
+                )
+            }
         }
     }
 }
